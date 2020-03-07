@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/faizmokhtar/cyoa/cyoa"
 	"github.com/gorilla/mux"
@@ -30,12 +29,12 @@ func main() {
 	r.Handle("/{key}", NewHandler(story))
 	r.Handle("/", NewHandler(story))
 
-	srv := &http.Server{
-		Handler:      r,
-		Addr:         "127.0.0.1:3030",
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
 	}
 
-	log.Fatal(srv.ListenAndServe())
+	http.Handle("/", r)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
