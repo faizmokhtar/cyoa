@@ -1,11 +1,11 @@
 package main
 
 import (
-	"cyoa"
 	"log"
 	"net/http"
 	"text/template"
 
+	"github.com/faizmokhtar/cyoa"
 	"github.com/gorilla/mux"
 )
 
