@@ -28,6 +28,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
 	r.Handle("/{key}", NewHandler(story))
 	r.Handle("/", NewHandler(story))
 
