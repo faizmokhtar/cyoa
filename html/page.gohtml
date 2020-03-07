@@ -5,5 +5,14 @@
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
     </head>
     <body>
+        <h1>{{.Title}}</h1>
+        {{ range .Paragraph }}
+            {{.}}
+        {{ end }}
+        <ul>
+        {{ range .Options }}
+            <li><a href="{{.Chapter}}">{{.Text}}</a></li>
+        {{ end }}
+        </ul>
     </body>
 </html>
