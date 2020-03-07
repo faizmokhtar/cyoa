@@ -26,9 +26,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%+v\n", story)
 
 	r := mux.NewRouter()
+	r.Handle("/{key}", NewHandler(story))
 	r.Handle("/", NewHandler(story))
 
 	srv := &http.Server{
