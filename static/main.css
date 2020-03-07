@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Baskervville|Sacramento&display=swap');
+
+h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4.5em;
+    margin-bottom: 0.55em;
+}
+
+p {
+    font-family: 'Baskervville', serif;
+    font-size: 1.4em;
+}
+
+.para {
+    display: block;
+    padding-top: 3em;
+}
+
+.next {
+    font-family: 'Baskervville', serif;
+    font-weight: 'bold';
+    color: black;
+}
