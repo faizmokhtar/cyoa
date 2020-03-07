@@ -4,7 +4,12 @@ import (
 	"cyoa"
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 	"os"
+	"time"
+
+	"github.com/gorilla/mux"
 )
 
 func main() {
@@ -21,6 +26,18 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	fmt.Printf("%+v\n", story)
+
+	r := mux.NewRouter()
+	r.Handle("/", NewHandler(story))
+
+	srv := &http.Server{
+		Handler: r,
+		Addr:    "127.0.0.1:3030",
+		// Good practice: enforce timeouts for servers you create!
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout:  15 * time.Second,
+	}
+
+	log.Fatal(srv.ListenAndServe())
 }
