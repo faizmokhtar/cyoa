@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/faizmokhtar/cyoa"
+	"github.com/faizmokhtar/cyoa/cyoa"
 	"github.com/gorilla/mux"
 )
 

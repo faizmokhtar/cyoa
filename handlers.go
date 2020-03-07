@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"text/template"
 
-	"github.com/faizmokhtar/cyoa"
+	"github.com/faizmokhtar/cyoa/cyoa"
 	"github.com/gorilla/mux"
 )
 
